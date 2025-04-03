@@ -1,6 +1,3 @@
-CREATE DATABASE rogers_booking;
-USE rogers_booking;
-
 CREATE TABLE Customer (
     Customer_ID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(100),
