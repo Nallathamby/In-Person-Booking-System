@@ -4,7 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 # Configure SQLAlchemy Database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@your-host/rogers_booking'
+# Replace 'username', 'password', 'host', and 'database_name' with your MySQL details from PythonAnywhere
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://PNallathamby:Cisco123!@PNallathamby.mysql.pythonanywhere-services.com/PNallathamby$rogers_booking'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -71,7 +72,7 @@ def feedbacks():
     ).all()
     return render_template('feedbacks.html', feedbacks=feedback_data)
 
-# Error Handling (Optional)
+# Error Handling
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

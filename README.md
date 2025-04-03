@@ -1,2 +1,2 @@
 # In-Person-Booking-System
-n-person booking system
+in-person booking system
