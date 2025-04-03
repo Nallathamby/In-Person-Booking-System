@@ -1,0 +1,141 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #cc0000; /* Rogers Red */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #990000; /* Darker Rogers Red */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 15px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    background-color: #b30000; /* Hover effect */
+    transition: background-color 0.3s ease;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #cc0000; /* Rogers Red */
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Forms */
+form {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #cc0000; /* Rogers Red Border */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cc0000; /* Rogers Red Border */
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #cc0000; /* Rogers Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button:hover {
+    background-color: #990000; /* Hover effect */
+    transition: background-color 0.3s ease;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #cc0000; /* Rogers Red Border */
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #cc0000; /* Rogers Red */
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ffe5e5; /* Light Red Hover */
+}
+
+/* Footer */
+footer {
+    background-color: #990000; /* Dark Rogers Red */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
