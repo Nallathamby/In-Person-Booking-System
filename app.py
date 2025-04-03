@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 # Configure SQLAlchemy Database URI
 # Replace 'username', 'password', 'host', and 'database_name' with your MySQL details from PythonAnywhere
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://PNallathamby:Cisco123!@PNallathamby.mysql.pythonanywhere-services.com/PNallathamby$rogers_booking'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://PNallathamby:NEW_PASSWORD@PNallathamby.mysql.pythonanywhere-services.com/PNallathamby$rogers_booking'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
