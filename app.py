@@ -6,10 +6,10 @@ app = Flask(__name__)
 # Database connection
 def connect_db():
     return pymysql.connect(
-        host='your_database_host',
-        user='your_database_user',
-        password='your_database_password',
-        db='your_database_name',
+        host='pn101.mysql.pythonanywhere-services.com',  # Your database host
+        user='pn101',  # Your username
+        password='Cisco123!',  # Your password
+        db='rogers_booking',  # Your database name
         cursorclass=pymysql.cursors.DictCursor
     )
 
@@ -50,6 +50,27 @@ def appointment():
         appointments = cursor.fetchall()
     connection.close()
     return render_template('appointment.html', appointments=appointments)
+
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if request.method == 'POST':
+        connection = connect_db()
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """INSERT INTO Feedback (Customer_ID, Appointment_ID, Rating, Comments)
+                VALUES (%s, %s, %s, %s)""",
+                (request.form['customer_id'], request.form['appointment_id'],
+                 request.form['rating'], request.form['comments'])
+            )
+            connection.commit()
+        connection.close()
+        return redirect('/feedback')
+    connection = connect_db()
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM Feedback")
+        feedback_list = cursor.fetchall()
+    connection.close()
+    return render_template('feedback.html', feedback_list=feedback_list)
 
 if __name__ == '__main__':
     app.run(debug=True)
