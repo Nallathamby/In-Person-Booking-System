@@ -1,0 +1,6 @@
+Flask==2.2.5              # Core framework for building your web app
+Flask-SQLAlchemy==3.0.5   # ORM for managing your database models
+PyMySQL==1.0.2            # MySQL driver to connect Flask to MySQL
+Jinja2==3.1.2             # Flask's templating engine
+Werkzeug==2.2.3           # Utilities for Flask like routing and request/response handling
+gunicorn==20.1.0          # WSGI server for deployment on PythonAnywhere

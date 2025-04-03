@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogers Booking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Rogers In-Person Booking System</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/customers">Customers</a></li>
+                <li><a href="/appointments">Appointments</a></li>
+                <li><a href="/feedbacks">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to Rogers Booking System</h2>
+            <p>Schedule technician appointments, track their progress, and share your feedback—all in one place.</p>
+            <a href="/appointments" class="button">Book an Appointment</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Rogers Booking System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
