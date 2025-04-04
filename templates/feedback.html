@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Management</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
-        <h1>Feedback Management</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/customer">Customer</a></li>
-            <li><a href="/appointment">Appointment</a></li>
-            <li><a href="/feedback">Feedback</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>Submit Feedback</h2>
-            <form action="/feedback" method="POST">
-                <label for="customer_id">Customer ID:</label>
-                <input type="number" id="customer_id" name="customer_id" required>
-                
-                <label for="appointment_id">Appointment ID:</label>
-                <input type="number" id="appointment_id" name="appointment_id" required>
-                
-                <label for="rating">Rating (1 to 5):</label>
-                <input type="number" id="rating" name="rating" min="1" max="5" required>
-                
-                <label for="comments">Comments:</label>
-                <textarea id="comments" name="comments" required></textarea>
-                
-                <button type="submit">Submit Feedback</button>
-            </form>
-        </section>
-        <section>
-            <h2>Existing Feedback</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feedback ID</th>
-                        <th>Customer ID</th>
-                        <th>Appointment ID</th>
-                        <th>Rating</th>
-                        <th>Comments</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for feedback in feedback_list %}
-                    <tr>
-                        <td>{{ feedback.Feedback_ID }}</td>
-                        <td>{{ feedback.Customer_ID }}</td>
-                        <td>{{ feedback.Appointment_ID }}</td>
-                        <td>{{ feedback.Rating }}</td>
-                        <td>{{ feedback.Comments }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Rogers Booking System</p>
-    </footer>
+    <h1>Feedback Management</h1>
+
+    <!-- Add Feedback -->
+    <form method="POST">
+        <label for="customer_id">Customer:</label>
+        <select name="customer_id" required>
+            {% for customer in customers %}
+            <option value="{{ customer.Customer_ID }}">{{ customer.Name }} (ID: {{ customer.Customer_ID }})</option>
+            {% endfor %}
+        </select>
+
+        <label for="appointment_id">Appointment:</label>
+        <select name="appointment_id" required>
+            {% for appointment in appointments %}
+            <option value="{{ appointment.Appointment_ID }}">Appointment {{ appointment.Appointment_ID }} on {{ appointment.Date }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" name="rating" min="1" max="5" required>
+
+        <label for="comments">Comments:</label>
+        <textarea name="comments" rows="4" cols="50" placeholder="Write your feedback here..." required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <!-- Display Feedback -->
+    <h2>Feedback List</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Appointment Date</th>
+            <th>Service</th>
+            <th>Rating</th>
+            <th>Comments</th>
+        </tr>
+        {% for feedback in feedback_list %}
+        <tr>
+            <td>{{ feedback.Feedback_ID }}</td>
+            <td>{{ feedback.Customer }}</td>
+            <td>{{ feedback.Date }}</td>
+            <td>{{ feedback.Service_Type }}</td>
+            <td>{{ feedback.Rating }}</td>
+            <td>{{ feedback.Comments }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

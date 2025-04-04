@@ -6,6 +6,8 @@
 </head>
 <body>
     <h1>Manage Customers</h1>
+
+    <!-- Add New Customer -->
     <form method="POST">
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email" required>
@@ -13,11 +15,17 @@
         <input type="text" name="address" placeholder="Address" required>
         <button type="submit">Add Customer</button>
     </form>
-    
+
+    <!-- Display Existing Customers -->
     <h2>Existing Customers</h2>
     <table border="1">
         <tr>
-            <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th>Actions</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Actions</th>
         </tr>
         {% for customer in customers %}
         <tr>
@@ -27,6 +35,7 @@
             <td>{{ customer.Phone }}</td>
             <td>{{ customer.Address }}</td>
             <td>
+                <!-- Edit Form -->
                 <form method="POST" action="/customer/edit/{{ customer.Customer_ID }}">
                     <input type="text" name="name" value="{{ customer.Name }}">
                     <input type="email" name="email" value="{{ customer.Email }}">
@@ -34,6 +43,7 @@
                     <input type="text" name="address" value="{{ customer.Address }}">
                     <button type="submit">Update</button>
                 </form>
+                <!-- Delete Action -->
                 <a href="/customer/delete/{{ customer.Customer_ID }}">Delete</a>
             </td>
         </tr>
